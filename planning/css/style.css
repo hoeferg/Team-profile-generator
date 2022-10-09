@@ -1,0 +1,53 @@
+* {
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    background-color: red;
+    height: 130px;
+    padding-top: 40px;
+}
+
+
+
+.person {
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+}
+
+.column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {
+    margin: 0 -5px;
+}
+
+
+/* Style the counter cards */
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    /* this adds the "card" effect */
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+}
+
+.person-info {
+    text-align: left;
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
+}
