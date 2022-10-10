@@ -7,75 +7,73 @@ const { choices } = require('yargs');
 const { jSXMemberExpression } = require('@babel/types');
 const { default: generate } = require('@babel/generator');
 
-// const generateREADME = ({ description, installation, usage, issues, contributions, questions, credits, licenses }) =>
-// # $(question.title)
 
-// ##
-
-// TODO: Create an array of questions for user input
-// const questions = [];
 function generateRoles() {
 
     function roles() {
-        inquirer
-            .prompt([
-                {
-                    type: 'list',
-                    name: 'job',
-                    message: 'What is the role that person has?',
-                    choices: ["manager", "engineer", "intern", "I do not need to add any other team members"]
-                }]).then(function (userInput) {
-                    switch (userInput.addPrompt) {
-                        case "manager": managerQuestions();
-                            break;
-                        case "engineer": engineerQuestions();
-                            break;
-                        case "intern": internQuestions();
-                            break;
-                        default: markdown();
-                    }
-                })
+        inquirer.prompt([
+            {
+                type: 'list',
+                name: 'job',
+                message: 'What is the role that person has?',
+                choices: ["manager", "engineer", "intern", "I do not need to add any other team members"]
+            }]).then(function (userInput) {
+                switch (userInput.addPrompt) {
+                    case "manager": managerQuestions();
+                        break;
+                    case "engineer": engineerQuestions();
+                        break;
+                    case "intern": internQuestions();
+                        break;
+                    default: markdown();
+                }
+            })
     }
 
-    function (managerQuestions) {
+    function managerQuestions() {
         inquirer.prompt([
             {
                 type: 'input',
-                name: 'name',
-                message: 'What is the name of the employee?',
+                name: 'mName',
+                message: 'What is the name of the manager?',
             },
             {
                 type: 'input',
-                name: 'id',
-                message: 'What is the id of the employee?',
+                name: 'mId',
+                message: 'What is the id of the manager?',
             },
             {
                 type: 'input',
-                name: 'email',
-                message: 'What is the email of the employee?',
+                name: 'mEmail',
+                message: 'What is the email of the manager?',
             },
             {
                 type: 'input',
                 name: 'office',
                 message: 'What is the office number of the manager?',
             },
+        ]).then(answers => {
+            const manager = new Manager(answers.mName, answers.mId, answers.mEmail, answers.office);
+            roleArray.push(manager);
+            roles();
+        })
+        }
 
-        ])
-        function (engineerQuestions) {
+        function engineerQuestions(){
             inquirer.prompt([
                 {
                     type: 'input',
-                    name: 'name',
+                    name: 'eName',
                     message: 'What is the name of the employee?',
                 },
                 {
                     type: 'input',
-                    name: 'id',
+                    name: 'eId',
                     message: 'What is the id of the employee?',
                 },
                 {
                     type: 'input',
-                    name: 'email',
+                    name: 'eEmail',
                     message: 'What is the email of the employee?',
                 },
                 {
@@ -83,22 +81,28 @@ function generateRoles() {
                     name: 'github',
                     message: 'What is the users github user name?',
                 },
-            ])
-            function (internQuestions) {
+            ]).then(answers => {
+            const engineer = new Engineer(answers.eName, answers.eId, answers.eEmail, answers.github);
+            roleArray.push(engineer);
+            roles();
+        })
+
+        }
+            function internQuestions(){
                 inquirer.prompt([
                     {
                         type: 'input',
-                        name: 'name',
+                        name: 'iName',
                         message: 'What is the name of the employee?',
                     },
                     {
                         type: 'input',
-                        name: 'id',
+                        name: 'iId',
                         message: 'What is the id of the employee?',
                     },
                     {
                         type: 'input',
-                        name: 'email',
+                        name: 'iEmail',
                         message: 'What is the email of the employee?',
                     },
                     {
@@ -106,7 +110,10 @@ function generateRoles() {
                         name: 'school',
                         message: 'What is the interns school?',
                     },
-                ])
+                ]).then(answers => {
+                    const engineer = new Engineer(answers.iName, answers.iId, answers.iEmail, answers.school);
+                    roleArray.push(engineer);
+                    roles();
             }
         }
 
@@ -121,7 +128,7 @@ function generateRoles() {
         });
     }
 }
-}
+
 role();
 generateRoles();
 
