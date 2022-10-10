@@ -111,23 +111,19 @@ function generateRoles() {
                         message: 'What is the interns school?',
                     },
                 ]).then(answers => {
-                    const engineer = new Engineer(answers.iName, answers.iId, answers.iEmail, answers.school);
+                    const engineer = new Intern (answers.iName, answers.iId, answers.iEmail, answers.school);
                     roleArray.push(engineer);
                     roles();
-            }
-        }
-
-        // TODO: Create a function to write README file
-        // function writeToFile(readme, generateREADME(answers)) { }
-        .then((answers) => {
-            const markdownPageContent = markdown(answers);
+            })
+        }.then((answers) => {
+            const markdownPageContent = ["Manager, Engineer, Intern"];
 
             fs.writeFile('index.html', markdownPageContent, (err) =>
                 err ? console.log(err) : console.log('Successfully created HTML!')
-            );
-        });
+            )
+        })
     }
-}
+
 
 role();
 generateRoles();
