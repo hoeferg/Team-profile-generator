@@ -1,18 +1,20 @@
-// WHEN I start the application
-// THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
-// WHEN I enter the team manager’s name, employee ID, email address, and office number
+const Manager = require("../lib/Manager");
+const Employee = require("../lib/Employee");
 
-const Employee = require("../employee");
+test("Can set office number via constructor argument", () => {
+  const testValue = 100;
+  const e = new Manager("Foo", 1, "test@test.com", testValue);
+  expect(e.officeNumber).toBe(testValue);
+});
 
-describe("manager", () => {
-    describe("option", () => {
-        it("should display input of name, ID, email, and school", () => {
-            const input = "name, ID, email, office number";
-            const answers = "gayle, 1, test@email.com, 1";
+test("getRole() should return \"Manager\"", () => {
+  const testValue = "Manager";
+  const e = new Manager("Foo", 1, "test@test.com", 100);
+  expect(e.getRole()).toBe(testValue);
+});
 
-            const result = new option().stingInput(str);
-
-            expect(input).toEqual(answers);
-        });
-    });
+test("Can get office number via getOffice()", () => {
+  const testValue = 100;
+  const e = new Manager("Foo", 1, "test@test.com", testValue);
+  expect(e.getOfficeNumber()).toBe(testValue);
 });

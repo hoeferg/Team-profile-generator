@@ -1,18 +1,19 @@
-// WHEN I select the intern option
-// THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
-// WHEN I decide to finish building my team
+const Intern = require("../lib/Intern");
 
-const Employee = require("../employee");
+test("Can set school via constructor", () => {
+  const testValue = "UCLA";
+  const e = new Intern("Foo", 1, "test@test.com", testValue);
+  expect(e.school).toBe(testValue);
+});
 
-describe("intern", () => {
-    describe("option", () => {
-        it("should display input of name, ID, email, and school", () => {
-            const input = "name, ID, email, school";
-            const answers = "gayle, 1, test@email.com, UofA";
+test("getRole() should return \"Intern\"", () => {
+  const testValue = "Intern";
+  const e = new Intern("Foo", 1, "test@test.com", "UCLA");
+  expect(e.getRole()).toBe(testValue);
+});
 
-            const result = new option().stingInput(str);
-
-            expect(input).toEqual(answers);
-        });
-    });
+test("Can get school via getSchool()", () => {
+  const testValue = "UCLA";
+  const e = new Intern("Foo", 1, "test@test.com", testValue);
+  expect(e.getSchool()).toBe(testValue);
 });

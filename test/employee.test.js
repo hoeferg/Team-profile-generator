@@ -1,63 +1,48 @@
-// GIVEN a command-line application that accepts user input
-// WHEN I am prompted for my team members and their information
-// THEN an HTML file is generated that displays a nicely formatted team roster based on user input
-// WHEN I click on an email address in the HTML
-// THEN my default email program opens and populates the TO field of the email with the address
-// WHEN I click on the GitHub username
-// THEN that GitHub profile opens in a new tab
-// WHEN I decide to finish building my team
-// THEN I exit the application, and the HTML is generated
+const Employee = require("../lib/Employee");
 
-const Employee = require("../employee");
+test("Can instantiate Employee instance", () => {
+  const e = new Employee();
+  expect(typeof(e)).toBe("object");
+});
 
-describe("employee", () => {
-    describe("promptTeamRole", () => {
-        it("should return true of there is a list of team member roles to pick from", () => {
-            const str = ["employee", "engineer", "intern", "manager"];
+test("Can set name via constructor arguments", () => {
+  const name = "Alice";
+  const e = new Employee(name);
+  expect(e.name).toBe(name);
+});
 
-            const result = new Employee().isCreated();
+test("Can set id via constructor argument", () => {
+  const testValue = 100;
+  const e = new Employee("Foo", testValue);
+  expect(e.id).toBe(testValue);
+});
 
-            expect(result).toEqual(true);
-        });
-    });
+test("Can set email via constructor argument", () => {
+  const testValue = "test@test.com";
+  const e = new Employee("Foo", 1, testValue);
+  expect(e.email).toBe(testValue);
+});
 
-    describe("generateHTML", () => {
-        it("should return true if a new HTML file is generated when all answers are entered", () => {
-            const str = "html";
+test("Can get name via getName()", () => {
+  const testValue = "Alice";
+  const e = new Employee(testValue);
+  expect(e.getName()).toBe(testValue);
+});
 
-            const result = new generateHTML().isCreated();
+test("Can get id via getId()", () => {
+  const testValue = 100;
+  const e = new Employee("Foo", testValue);
+  expect(e.getId()).toBe(testValue);
+});
 
-            expect(result).toEqual(true);
-        });
+test("Can get email via getEmail()", () => {
+  const testValue = "test@test.com";
+  const e = new Employee("Foo", 1, testValue);
+  expect(e.getEmail()).toBe(testValue);
+});
 
-        it("should return false if no HTML document is created", () => {
-            const str = "html";
-
-            const result = new generateHTML().isNotCreated();
-
-            expect(result).toEqual(false);
-        });
-    });
-
-    describe("email", () => {
-        it("should open my default email program and populates the TO field of the email with the address", () => {
-            const str = "email";
-            const newEmail = "gmail.com"
-
-            const result = new email().opensEmail();
-
-            expect(result).toEqual(true);
-        });
-    });
-
-    describe("gitHub", () => {
-        it("should open browser and link it to my github", () => {
-            const str = "github";
-            const newEmail = "github.com"
-
-            const result = new email().opensGithub();
-
-            expect(result).toEqual(true);
-        });
-    });
+test("getRole() should return \"Employee\"", () => {
+  const testValue = "Employee";
+  const e = new Employee("Alice", 1, "test@test.com");
+  expect(e.getRole()).toBe(testValue);
 });
