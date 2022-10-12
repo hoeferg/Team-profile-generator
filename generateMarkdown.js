@@ -5,86 +5,107 @@ const Intern = require("./lib/intern")
 const Manager = require("./lib/manager")
 const membersObjArray = require("./index")
 
-function generateCards() {
-  for (let i = 1; i < membersObjArray.length; i++) {
-    let myDiv = document.createElement("div");
-    myDiv.innerHTML = "<div class=\"card\">" + i + "div"
-    container.appendChild(myDiv)
-
-    function generateName() {
-      let name = document.createElement(h2);
-      name.innerHTML = "{answers[0].getName}";
-      container.appendChild(name);
-    }
-
-    function generateRole() {
-      let role = document.createElement(h3);
-      role.innerHTML = "${answers[0].getRole}";
-      container.appendChild(role);
-    }
-
-    renderEmoji()
-
-    function generateName() {
-      let id = document.createElement(p);
-      id.innerHTML = "{answers[0].getName}";
-      container.appendChild(id);
-    }
-
-    function generateEmail() {
-      let email = document.createElement(p);
-      email.innerHTML = "{answers.getEmail}";
-      container.appendChild(email);
-    }
-
-    function generateFourthOption() {
-
-      if (inquirer.prompt = office) {
-        let office = document.createElement(p);
-        office.innerHTML = "{answers.office}";
-        container.appendChild(office);
-
-      } else if (inquirer.prompt = github) {
-        let github = document.createElement(p);
-        office.innerHTML = "{answers.github}";
-        container.appendChild(github);
-
-      } else if (inquirer.prompt = github) {
-        let github = document.createElement(p);
-        office.innerHTML = "{answers.github}";
-        container.appendChild(github);
-
-      } else if (inquirer.prompt = school) {
-        let github = document.createElement(p);
-        office.innerHTML = "{answers.school}";
-        container.appendChild(school);
-
-      } else {
-        return ""
-      }
-    }
-  }
+function managerType(manager) {
+return `
+<h2>${manager.name}</h2>
+`
 }
 
-  function renderEmoji(emoji) {
-    switch (emoji) {
-      case "manager":
-        return `<a href="https://www.flaticon.com/free-icons/man" title="man icons">Man icons created by Freepik - Flaticon</a>`;
-
-      case "engineer":
-        return `<a href="https://www.flaticon.com/free-icons/worker" title="worker icons">Worker icons created by Freepik - Flaticon</a>`;
-
-      case "intern":
-        return `<a href="https://www.flaticon.com/free-icons/internship" title="internship icons">Internship icons created by juicy_fish - Flaticon</a>`;
-      case "none":
-        return `N/A`;
-    }
+function addCard(cards) {
+console.log(card);
+let emptyStr = "";
+cards.forEach(employee => {
+  switch (employee.getRole()) {
+    case "manager": 
+      emptyStr += managerType(employee)
+      break;
+      default:
   }
+});
+return emptyStr}
 
 
-  function markdown(answers) {
-    console.log(answers[0].getRole())
-    return `<html lang="en">
+
+
+// function generateCards() {
+//   for (let i = 1; i < membersObjArray.length; i++) {
+//     let myDiv = document.createElement("div");
+//     myDiv.innerHTML = "<div class=\"card\">" + i + "div"
+//     container.appendChild(myDiv)
+
+//     function generateName() {
+//       let name = document.createElement(h2);
+//       name.innerHTML = answers.getName;
+//       container.appendChild(name);
+//     }
+
+//     function generateRole() {
+//       let role = document.createElement(h3);
+//       role.innerHTML = "${answers[0].getRole}";
+//       container.appendChild(role);
+//     }
+
+//     renderEmoji()
+
+//     function generateName() {
+//       let id = document.createElement(p);
+//       id.innerHTML = "{answers[0].getName}";
+//       container.appendChild(id);
+//     }
+
+//     function generateEmail() {
+//       let email = document.createElement(p);
+//       email.innerHTML = "{answers.getEmail}";
+//       container.appendChild(email);
+//     }
+
+//     function generateFourthOption() {
+
+//       if (inquirer.prompt = office) {
+//         let office = document.createElement(p);
+//         office.innerHTML = "{answers.office}";
+//         container.appendChild(office);
+
+//       } else if (inquirer.prompt = github) {
+//         let github = document.createElement(p);
+//         office.innerHTML = "{answers.github}";
+//         container.appendChild(github);
+
+//       } else if (inquirer.prompt = github) {
+//         let github = document.createElement(p);
+//         office.innerHTML = "{answers.github}";
+//         container.appendChild(github);
+
+//       } else if (inquirer.prompt = school) {
+//         let github = document.createElement(p);
+//         office.innerHTML = "{answers.school}";
+//         container.appendChild(school);
+
+//       } else {
+//         return ""
+//       }
+//     }
+//   }
+// }
+
+// function renderEmoji(emoji) {
+//   switch (emoji) {
+//     case "manager":
+//       return `<a href="https://www.flaticon.com/free-icons/man" title="man icons">Man icons created by Freepik - Flaticon</a>`;
+
+//     case "engineer":
+//       return `<a href="https://www.flaticon.com/free-icons/worker" title="worker icons">Worker icons created by Freepik - Flaticon</a>`;
+
+//     case "intern":
+//       return `<a href="https://www.flaticon.com/free-icons/internship" title="internship icons">Internship icons created by juicy_fish - Flaticon</a>`;
+//     case "none":
+//       return `N/A`;
+//   }
+// }
+
+
+const markdown= cards => {
+  return `
   
   <!DOCTYPE html>
 <html lang="en">
@@ -99,9 +120,9 @@ function generateCards() {
 
 <body>
   <h1>My Team</h1> 
-  ${generateCards()}
+  ${addCards(cards)}
 `;
-  }
+}
 
-  module.exports = markdown;
+module.exports = markdown;
 
