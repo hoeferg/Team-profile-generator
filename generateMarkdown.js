@@ -1,30 +1,90 @@
-function generateCards () {
-for (let i = 1; i < membersObjArray.length; i++ ) {
-  let myDiv = document.createElement("div");
-  myDiv.innerHTML = "<div class=\"card\">" + i +"div" 
-  container.appendChild(myDiv)
-}}
+const { default: inquirer } = require("inquirer");
+const Employee = require("./lib/employee")
+const Engineer = require("./lib/engineer")
+const Intern = require("./lib/intern")
+const Manager = require("./lib/manager")
+const membersObjArray = require("./index")
 
+function generateCards() {
+  for (let i = 1; i < membersObjArray.length; i++) {
+    let myDiv = document.createElement("div");
+    myDiv.innerHTML = "<div class=\"card\">" + i + "div"
+    container.appendChild(myDiv)
 
-function renderEmoji(emoji) {
-  switch (emoji) {
-    case "manager":
-      return `<a href="https://www.flaticon.com/free-icons/man" title="man icons">Man icons created by Freepik - Flaticon</a>`;
+    function generateName() {
+      let name = document.createElement(h2);
+      name.innerHTML = "{answers[0].getName}";
+      container.appendChild(name);
+    }
 
-    case "engineer":
-      return `<a href="https://www.flaticon.com/free-icons/worker" title="worker icons">Worker icons created by Freepik - Flaticon</a>`;
+    function generateRole() {
+      let role = document.createElement(h3);
+      role.innerHTML = "${answers[0].getRole}";
+      container.appendChild(role);
+    }
 
-    case "intern":
-      return `<a href="https://www.flaticon.com/free-icons/internship" title="internship icons">Internship icons created by juicy_fish - Flaticon</a>`;
-    case "none":
-      return `N/A`;
+    renderEmoji()
+
+    function generateName() {
+      let id = document.createElement(p);
+      id.innerHTML = "{answers[0].getName}";
+      container.appendChild(id);
+    }
+
+    function generateEmail() {
+      let email = document.createElement(p);
+      email.innerHTML = "{answers.getEmail}";
+      container.appendChild(email);
+    }
+
+    function generateFourthOption() {
+
+      if (inquirer.prompt = office) {
+        let office = document.createElement(p);
+        office.innerHTML = "{answers.office}";
+        container.appendChild(office);
+
+      } else if (inquirer.prompt = github) {
+        let github = document.createElement(p);
+        office.innerHTML = "{answers.github}";
+        container.appendChild(github);
+
+      } else if (inquirer.prompt = github) {
+        let github = document.createElement(p);
+        office.innerHTML = "{answers.github}";
+        container.appendChild(github);
+
+      } else if (inquirer.prompt = school) {
+        let github = document.createElement(p);
+        office.innerHTML = "{answers.school}";
+        container.appendChild(school);
+
+      } else {
+        return ""
+      }
+    }
   }
 }
 
+  function renderEmoji(emoji) {
+    switch (emoji) {
+      case "manager":
+        return `<a href="https://www.flaticon.com/free-icons/man" title="man icons">Man icons created by Freepik - Flaticon</a>`;
 
-function generateHTML(answers) {
-  console.log(answers[0].getRole())
-  return `<html lang="en">
+      case "engineer":
+        return `<a href="https://www.flaticon.com/free-icons/worker" title="worker icons">Worker icons created by Freepik - Flaticon</a>`;
+
+      case "intern":
+        return `<a href="https://www.flaticon.com/free-icons/internship" title="internship icons">Internship icons created by juicy_fish - Flaticon</a>`;
+      case "none":
+        return `N/A`;
+    }
+  }
+
+
+  function markdown(answers) {
+    console.log(answers[0].getRole())
+    return `<html lang="en">
   
   <!DOCTYPE html>
 <html lang="en">
@@ -38,108 +98,10 @@ function generateHTML(answers) {
 </head>
 
 <body>
-  <h1>My Team</h1>
-
-  <section>
-    <div class="row">
-      <div class="column">
-        <div class="card">
-          <div class="person">
-            <h2>${answers[0].getName()}</h2>
-            <p>Image here</p>
-            <h3>Role</h3>
-          </div>
-          <ul class="person-info">
-            <p>ID:</p>
-            <p>Email:</p>
-            <p>Office:</p>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="row">
-      <div class="column">
-        <div class="card">
-          <div class="person">
-            <h2>Team member name</h2>
-            <p>Image here</p>
-            <h3>Role</h3>
-          </div>
-          <ul class="person-info">
-            <p>ID:</p>
-            <p>Email:</p>
-            <p>Office:</p>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="row">
-      <div class="column">
-        <div class="card">
-          <div class="person">
-            <h2>Team member name</h2>
-            <p>Image here</p>
-            <h3>Role</h3>
-          </div>
-          <ul class="person-info">
-            <p>ID:</p>
-            <p>Email:</p>
-            <p>Office:</p>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="row">
-      <div class="column">
-        <div class="card">
-          <div class="person">
-            <h2>Team member name</h2>
-            <p>Image here</p>
-            <h3>Role</h3>
-          </div>
-          <ul class="person-info">
-            <p>ID:</p>
-            <p>Email:</p>
-            <p>Office:</p>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="row">
-      <div class="column">
-        <div class="card">
-          <div class="person">
-            <h2>Team member name</h2>
-            <p>Image here</p>
-            <h3>Role</h3>
-          </div>
-          <ul class="person-info">
-            <p>ID:</p>
-            <p>Email:</p>
-            <p>Office:</p>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</body>
-
-</html>
+  <h1>My Team</h1> 
+  ${generateCards()}
 `;
-}
+  }
 
-module.exports = generateHTML;
+  module.exports = markdown;
 

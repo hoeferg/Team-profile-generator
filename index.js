@@ -24,17 +24,17 @@ function managerQuestions() {
     inquirer.prompt([
         {
             type: 'input',
-            name: 'mName',
+            name: 'name',
             message: 'What is the name of the manager?',
         },
         {
             type: 'input',
-            name: 'mId',
+            name: 'id',
             message: 'What is the id of the manager?',
         },
         {
             type: 'input',
-            name: 'mEmail',
+            name: 'email',
             message: 'What is the email of the manager?',
         },
         {
@@ -43,7 +43,7 @@ function managerQuestions() {
             message: 'What is the office number of the manager?',
         },
     ]) .then(answers => {
-        const manager = new Manager (answers.mName, answers.mId, answers.mEmail, answers.office)
+        const manager = new Manager (answers.name, answers.id, answers.email, answers.office)
         membersObjArray.push (manager)
         console.log(membersObjArray)
         buildTeam()
@@ -54,17 +54,17 @@ function engineerQuestions() {
     inquirer.prompt([
         {
             type: 'input',
-            name: 'eName',
+            name: 'name',
             message: 'What is the name of the employee?',
         },
         {
             type: 'input',
-            name: 'eId',
+            name: 'id',
             message: 'What is the id of the employee?',
         },
         {
             type: 'input',
-            name: 'eEmail',
+            name: 'email',
             message: 'What is the email of the employee?',
         },
         {
@@ -74,7 +74,7 @@ function engineerQuestions() {
         },
 
     ]).then(answers => {
-        const engineer = new Engineer (answers.eName, answers.eId, answers.eEmail, answers.github)
+        const engineer = new Engineer (answers.name, answers.id, answers.email, answers.github)
         membersObjArray.push(engineer)
         console.log(membersObjArray)
         buildTeam()
@@ -85,17 +85,17 @@ function internQuestions() {
     inquirer.prompt([
         {
             type: 'input',
-            name: 'iName',
+            name: 'name',
             message: 'What is the name of the employee?',
         },
         {
             type: 'input',
-            name: 'iId',
+            name: 'id',
             message: 'What is the id of the employee?',
         },
         {
             type: 'input',
-            name: 'iEmail',
+            name: 'email',
             message: 'What is the email of the employee?',
         },
         {
@@ -105,7 +105,7 @@ function internQuestions() {
         },
         
     ]).then(answers => {
-        const intern = new Intern (answers.iName, answers.iId, answers.iEmail, answers.school)
+        const intern = new Intern (answers.name, answers.id, answers.email, answers.school)
         membersObjArray.push(intern)
         console.log(membersObjArray)
         buildTeam()
