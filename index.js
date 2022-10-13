@@ -42,13 +42,13 @@ function managerQuestions() {
             name: 'office',
             message: 'What is the office number of the manager?',
         },
-    ]) .then(answers => {
-        const manager = new Manager (answers.name, answers.id, answers.email, answers.office)
-        membersObjArray.push (manager)
+    ]).then(answers => {
+        const manager = new Manager(answers.name, answers.id, answers.email, answers.office)
+        membersObjArray.push(manager)
         console.log(membersObjArray)
         buildTeam()
     })
-} 
+}
 
 function engineerQuestions() {
     inquirer.prompt([
@@ -74,7 +74,7 @@ function engineerQuestions() {
         },
 
     ]).then(answers => {
-        const engineer = new Engineer (answers.name, answers.id, answers.email, answers.github)
+        const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github)
         membersObjArray.push(engineer)
         console.log(membersObjArray)
         buildTeam()
@@ -103,9 +103,9 @@ function internQuestions() {
             name: 'school',
             message: 'What is the interns school?',
         },
-        
+
     ]).then(answers => {
-        const intern = new Intern (answers.name, answers.id, answers.email, answers.school)
+        const intern = new Intern(answers.name, answers.id, answers.email, answers.school)
         membersObjArray.push(intern)
         console.log(membersObjArray)
         buildTeam()
@@ -113,7 +113,7 @@ function internQuestions() {
 }
 
 
-function buildTeam () {
+function buildTeam() {
     inquirer.prompt([
         {
             type: 'list',
@@ -131,7 +131,7 @@ function buildTeam () {
                 break;
             default: createHtml();
         }
-    })      
+    })
 }
 
 
