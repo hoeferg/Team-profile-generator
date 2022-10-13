@@ -1,4 +1,3 @@
-// TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const Employee = require("./lib/employee")
 const Engineer = require("./lib/engineer")
@@ -136,10 +135,3 @@ function buildTeam() {
 
 
 buildTeam();
-
-
-
-// role();
-// generateRoles();
-
-
