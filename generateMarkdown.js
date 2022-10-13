@@ -4,7 +4,9 @@ const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
 const Manager = require("./lib/manager");
 const membersObjArray = require("./index");
+// brings in other files
 
+// creates the manager card with the info filled in
 function managerType(manager) {
   return `
 <h2>Manager</h2>
@@ -15,6 +17,7 @@ function managerType(manager) {
 `
 }
 
+// creates the engineer card with the info filled in
 function engineerType(engineer) {
   return `
 <h2>Engineer</h2>
@@ -25,6 +28,7 @@ function engineerType(engineer) {
 `
 }
 
+// creates the intern card with the info filled in
 function internType(intern) {
   return `
 <h2>Intern</h2>
@@ -36,7 +40,7 @@ function internType(intern) {
 }
 
 
-
+// adds the cards types to the html
 function addCard(cards) {
   console.log(cards);
   let emptyStr = "";
@@ -60,7 +64,7 @@ function addCard(cards) {
 }
 
 
-
+// This is the HTML funciton
 const markdown = cards => {
   return `
   
