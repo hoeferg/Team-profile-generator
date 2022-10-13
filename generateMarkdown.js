@@ -7,7 +7,7 @@ const membersObjArray = require("./index");
 
 function managerType(manager) {
   return `
-<h2>${manager.name}</h2>
+<h2>Manager</h2>
 <p>${manager.name}</p>
 <p>${manager.id}</p>
 <p>${manager.email}</p>
@@ -17,7 +17,7 @@ function managerType(manager) {
 
 function engineerType(engineer) {
   return `
-<h2>${engineer.name}</h2>
+<h2>Engineer</h2>
 <p>${engineer.name}</p>
 <p>${engineer.id}</p>
 <p>${engineer.email}</p>
@@ -27,7 +27,7 @@ function engineerType(engineer) {
 
 function internType(intern) {
   return `
-<h2>${intern.name}</h2>
+<h2>Intern</h2>
 <p>${intern.name}</p>
 <p>${intern.id}</p>
 <p>${intern.email}</p>
