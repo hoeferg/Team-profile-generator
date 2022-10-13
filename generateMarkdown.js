@@ -28,14 +28,14 @@ function engineerType(engineer) {
 function internType(intern) {
   return `
 <h2>${intern.name}</h2>
-<p>${intern.name}</p.
+<p>${intern.name}</p>
 <p>${intern.id}</p>
 <p>${intern.email}</p>
 <p>${intern.school}</p>
 `
 }
 
-console.log(addCard(cards))
+
 
 function addCard(cards) {
   console.log(cards);
