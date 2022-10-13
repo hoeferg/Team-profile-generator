@@ -40,15 +40,15 @@ function addCard(cards) {
   let emptyStr = "";
   cards.forEach(employee => {
     switch (employee.getRole()) {
-      case "manager":
+      case "Manager":
         emptyStr += managerType(employee)
         break;
 
-      case "engineer":
+      case "Engineer":
         emptyStr += engineerType(employee)
         break;
 
-      case "intern":
+      case "Intern":
         emptyStr += internType(employee)
         break;
       default: ""
@@ -75,6 +75,8 @@ const markdown = cards => {
 <body>
   <h1>My Team</h1> 
   ${addCard(cards)}
+  </body>
+  </html>
 `;
 }
 
