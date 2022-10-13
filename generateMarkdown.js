@@ -8,7 +8,7 @@ const membersObjArray = require("./index");
 function managerType(manager) {
   return `
 <h2>${manager.name}</h2>
-<p>${manager.name}</p.
+<p>${manager.name}</p>
 <p>${manager.id}</p>
 <p>${manager.email}</p>
 <p>${manager.office}</p>
@@ -18,7 +18,7 @@ function managerType(manager) {
 function engineerType(engineer) {
   return `
 <h2>${engineer.name}</h2>
-<p>${engineer.name}</p.
+<p>${engineer.name}</p>
 <p>${engineer.id}</p>
 <p>${engineer.email}</p>
 <p>${engineer.github}</p>
@@ -64,13 +64,13 @@ function addCard(cards) {
 const markdown = cards => {
   return `
   
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
   <link defer rel="stylesheet" href="./index.js">
   <title>Team Profile</title>
 </head>
