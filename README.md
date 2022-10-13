@@ -10,7 +10,8 @@ To install this application go to https://github.com/hoeferg/team-profile-genera
 ## Usage
 To use this application you will first have to download node.js and the npm package inquirer. From there open the terminal and run node index.js. From there you will be prompted to select the role of the employee and answer the prompts. When you are done select the "I do not need to add any other team members" option. Then the HTML will be created. Then you have to open the index.html in the browser.
 
-![screen shot](assets/images/screenshot.png)
+![screen shot](.assets/images/team.png)
+![video link](https://drive.google.com/file/d/1UvtVGXrifuZysmZ1a4vyklJcTkVNqsAz/view)
 
 ## Credits
 
