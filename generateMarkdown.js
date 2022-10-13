@@ -35,6 +35,8 @@ function internType(intern) {
 `
 }
 
+console.log(addCard(cards))
+
 function addCard(cards) {
   console.log(cards);
   let emptyStr = "";
@@ -51,8 +53,9 @@ function addCard(cards) {
       case "Intern":
         emptyStr += internType(employee)
         break;
-      default: ""
-    }
+      default: "";
+      return;
+    } 
   })
 }
 
