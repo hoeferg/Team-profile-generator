@@ -8,30 +8,30 @@ const membersObjArray = require("./index");
 function managerType(manager) {
   return `
 <h2>Manager</h2>
-<p>${manager.name}</p>
-<p>${manager.id}</p>
-<p>${manager.email}</p>
-<p>${manager.office}</p>
+<p>Name:${manager.name}</p>
+<p>ID:${manager.id}</p>
+<p>Email:${manager.email}</p>
+<p>Office Number:${manager.office}</p>
 `
 }
 
 function engineerType(engineer) {
   return `
 <h2>Engineer</h2>
-<p>${engineer.name}</p>
-<p>${engineer.id}</p>
-<p>${engineer.email}</p>
-<p>${engineer.github}</p>
+<p>Name:${engineer.name}</p>
+<p>ID:${engineer.id}</p>
+<p>Email:${engineer.email}</p>
+<p>Github:${engineer.github}</p>
 `
 }
 
 function internType(intern) {
   return `
 <h2>Intern</h2>
-<p>${intern.name}</p>
-<p>${intern.id}</p>
-<p>${intern.email}</p>
-<p>${intern.school}</p>
+<p>Name:${intern.name}</p>
+<p>Id:${intern.id}</p>
+<p>Email:${intern.email}</p>
+<p>School:${intern.school}</p>
 `
 }
 
