@@ -40,7 +40,7 @@ console.log(addCard(cards))
 function addCard(cards) {
   console.log(cards);
   let emptyStr = "";
-  cards.forEach.return (employee => {
+  cards.forEach (employee => {
     switch (employee.getRole()) {
       case "Manager":
         emptyStr += managerType(employee)
@@ -56,7 +56,8 @@ function addCard(cards) {
       default: ""
     } 
   })
-}return emptyStr;
+  return emptyStr
+}
 
 
 
