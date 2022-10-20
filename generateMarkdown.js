@@ -8,34 +8,37 @@ const membersObjArray = require("./index");
 
 // creates the manager card with the info filled in
 function managerType(manager) {
-  return `
+  return `<div class = "card">
 <h2>Manager</h2>
 <p>Name:${manager.name}</p>
 <p>ID:${manager.id}</p>
 <p>Email:${manager.email}</p>
 <p>Office Number:${manager.office}</p>
+</div>
 `
 }
 
 // creates the engineer card with the info filled in
 function engineerType(engineer) {
-  return `
+  return `<div class = "card">
 <h2>Engineer</h2>
 <p>Name:${engineer.name}</p>
 <p>ID:${engineer.id}</p>
 <p>Email:${engineer.email}</p>
 <p>Github:${engineer.github}</p>
+<div>
 `
 }
 
 // creates the intern card with the info filled in
 function internType(intern) {
-  return `
+  return `<div class = "card">
 <h2>Intern</h2>
 <p>Name:${intern.name}</p>
 <p>Id:${intern.id}</p>
 <p>Email:${intern.email}</p>
 <p>School:${intern.school}</p>
+<div>
 `
 }
 
@@ -74,8 +77,8 @@ const markdown = cards => {
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link defer rel="stylesheet" href="./index.js">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link defer rel="stylesheet" href="../index.js">
   <title>Team Profile</title>
 </head>
 

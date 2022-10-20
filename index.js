@@ -107,13 +107,8 @@ function internQuestions() {
             message: 'What is the interns school?',
         },
 // Push the answers to the array string
-    ]).then(answers => {
-        const intern = new Intern(answers.name, answers.id, answers.email, answers.school)
-        membersObjArray.push(intern)
-        console.log(membersObjArray)
-        buildTeam()
-    })
-}
+    ]) 
+    }
 
 // Is the start of the prompt and decides what questions should be asked.
 function buildTeam() {
